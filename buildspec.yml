@@ -10,13 +10,13 @@ phases:
   pre_build:
     commands:
       - echo "Configuring Databricks CLI..."
-      - mkdir -p ~/.databrickscfg
       - ls -ld ~
       - chmod u+w ~
       - touch ~/.databrickscfg
-      - echo "[DEFAULT]" > ~/.databrickscfg || echo "Command failed with exit status $?"
-      - echo "host = https://dbc-bc2256ee-0075.cloud.databricks.com" >> ~/.databrickscfg
+      - chmod 600 ~/.databrickscfg
+      - echo "[DEFAULT]" > ~/.databrickscfg 
       - echo "token = $DATABRICKS_TOKEN" >> ~/.databrickscfg
+      - echo "host = https://dbc-bc2256ee-0075.cloud.databricks.com" >> ~/.databrickscfg
       - echo "Databricks CLI configured successfully."
   build:
     commands:

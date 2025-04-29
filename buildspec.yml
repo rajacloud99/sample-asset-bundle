@@ -13,7 +13,8 @@ phases:
       - mkdir -p ~/.databrickscfg
       - ls -ld ~
       - chmod u+w ~
-      - echo "[DEFAULT]" > ~/.databrickscfg
+      - touch ~/.databrickscfg
+      - echo "[DEFAULT]" > ~/.databrickscfg || echo "Command failed with exit status $?"
       - echo "host = https://dbc-bc2256ee-0075.cloud.databricks.com" >> ~/.databrickscfg
       - echo "token = $DATABRICKS_TOKEN" >> ~/.databrickscfg
       - echo "Databricks CLI configured successfully."

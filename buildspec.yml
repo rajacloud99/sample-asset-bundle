@@ -5,8 +5,16 @@ phases:
     runtime-versions:
       python: 3.x
     commands:
-      - echo "Installing dependencies..."
+      - echo "Installing Databricks CLI..."
       - pip install databricks-cli
+  pre_build:
+    commands:
+      - echo "Configuring Databricks CLI..."
+      - mkdir -p ~/.databrickscfg
+      - echo "[DEFAULT]" > ~/.databrickscfg
+      - echo "host = https://dbc-bc2256ee-0075.cloud.databricks.com" >> ~/.databrickscfg
+      - echo "token = $DATABRICKS_TOKEN" >> ~/.databrickscfg
+      - echo "Databricks CLI configured successfully."
   build:
     commands:
       - echo "Running deployment script..."
@@ -14,7 +22,8 @@ phases:
       - ./deploy.sh
   post_build:
     commands:
-      - echo "Build and deployment completed."
+      - echo "Deployment completed successfully."
+
 artifacts:
   files:
     - "**/*"

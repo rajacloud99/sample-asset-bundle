@@ -11,6 +11,8 @@ phases:
     commands:
       - echo "Configuring Databricks CLI..."
       - mkdir -p ~/.databrickscfg
+      - ls -ld ~
+      - chmod u+w ~
       - echo "[DEFAULT]" > ~/.databrickscfg
       - echo "host = https://dbc-bc2256ee-0075.cloud.databricks.com" >> ~/.databrickscfg
       - echo "token = $DATABRICKS_TOKEN" >> ~/.databrickscfg

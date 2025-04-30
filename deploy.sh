@@ -19,7 +19,7 @@ fi
 # Step 2: Upload Libraries (JARs, Python packages, etc.) to DBFS
 if [ -d "./libraries" ]; then
     echo "Uploading libraries to DBFS..."
-    databricks fs cp --recursive ./libraries $DBFS_PATH/libraries
+    databricks fs cp ./libraries/helloworld.jar dbfs:/mnt/asset-bundle/libraries/
     if [ $? -ne 0 ]; then
         echo "Failed to upload libraries. Exiting..."
         exit 1

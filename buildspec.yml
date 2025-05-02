@@ -3,11 +3,10 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      python: 3.10
+      python: 3.x
     commands:
       - echo "Installing Databricks CLI..."
       - pip install databricks-cli
-      - curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | sh
   pre_build:
     commands:
       - echo "Configuring Databricks CLI..."
@@ -21,12 +20,12 @@ phases:
       - echo "Databricks CLI configured successfully."
   build:
     commands:
-      - echo "Starting Databricks deployment using databricks.yml..."
-      - databricks bundle deploy --config-file databricks.yml
-      - echo "Deployment completed successfully!"
-    post_build:
+      - echo "Running deployment script..."
+      - chmod +x deploy.sh
+      - ./deploy.sh
+  post_build:
     commands:
-      - echo "Deployment completed successfully."  
+      - echo "Deployment completed successfully."
 
 artifacts:
   files:

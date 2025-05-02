@@ -7,7 +7,7 @@ phases:
     commands:
       - echo "Installing Databricks CLI..."
       - pip install databricks-cli
-      - pip install --upgrade databricks-cli
+      - curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | sh
   pre_build:
     commands:
       - echo "Configuring Databricks CLI..."

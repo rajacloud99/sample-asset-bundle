@@ -7,6 +7,7 @@ phases:
     commands:
       - echo "Installing Databricks CLI..."
       - pip install databricks-cli
+      - pip install --upgrade databricks-cli
   pre_build:
     commands:
       - echo "Configuring Databricks CLI..."
@@ -26,7 +27,7 @@ phases:
     post_build:
     commands:
       - echo "Deployment completed successfully."  
-      
+
 artifacts:
   files:
     - "**/*"

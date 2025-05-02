@@ -20,13 +20,13 @@ phases:
       - echo "Databricks CLI configured successfully."
   build:
     commands:
-      - echo "Running deployment script..."
-      - chmod +x deploy.sh
-      - ./deploy.sh
-  post_build:
+      - echo "Starting Databricks deployment using databricks.yml..."
+      - databricks bundle deploy --config-file databricks.yml
+      - echo "Deployment completed successfully!"
+    post_build:
     commands:
-      - echo "Deployment completed successfully."
-
+      - echo "Deployment completed successfully."  
+      
 artifacts:
   files:
     - "**/*"

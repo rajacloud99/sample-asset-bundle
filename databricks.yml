@@ -1,0 +1,11 @@
+profiles:
+  test:
+    host: https://dbc-bc2256ee-0075.cloud.databricks.com
+    token: $DATABRICKS_TOKEN
+
+workspace:
+  bundle:
+    source: ./bundle
+    path: /Shared/sample-assets
+    recursive: true
+    overwrite: true
